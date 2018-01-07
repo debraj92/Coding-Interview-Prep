@@ -5,6 +5,7 @@ import java.util.Random;
 public class PracticeSorting {
 	public static void main(String[]args){
 		int totalElements = 20;
+		System.out.println("PracticeSorting");
 		// I will use random to generate random integers between 0 to 100
 		int[] myArray = new int[totalElements];
 		//https://www.geeksforgeeks.org/generating-random-numbers-in-java/
