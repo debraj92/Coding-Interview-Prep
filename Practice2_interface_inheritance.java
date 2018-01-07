@@ -1,3 +1,5 @@
+package JavaLearn;
+
 
 public class Practice2_interface_inheritance {
 	public static void main(String[]args) {

@@ -1,3 +1,5 @@
+package JavaLearn;
+
 public class BinarySearchClient {
 	public static void main(String[] args){
 		String stringToBeSearched = "isha";

@@ -1,3 +1,5 @@
+package JavaLearn;
+
 
 public class PalindromePracticeClient {
 	public static void main(String[]args) {

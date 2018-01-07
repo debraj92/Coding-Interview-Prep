@@ -1,3 +1,5 @@
+package JavaLearn;
+
 public class CustomLinkedListPractice {
 	public static void main(String[]args) {
 		MyLinkedList list = new MyLinkedList();
