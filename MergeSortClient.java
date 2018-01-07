@@ -62,8 +62,15 @@ class Sorter {
 
 		/**
 		 * The logic of switching roles ---------------------------------
-		 * mergeSortInternal = ms ms(arr, aux) (1) / \ / \ ms(aux, arr) (2)
-		 * ms(aux, arr) (3) / \ / \ ms(arr, aux) (4) ms(arr, aux) (5)
+		 * mergeSortInternal = ms 
+		 * 
+		 *                            ms(arr, aux) (1) 
+		 *                                  /            \
+		 *                               /                \
+		 *            ms(aux, arr) (2)           ms(aux, arr) (3) 
+		 *             /                \  
+		 *           /                   \
+		 *  ms(arr, aux) (4)     ms(arr, aux) (5)
 		 * 
 		 * 4 and 5 sorts their part of arr and keeps their sorted data inside
 		 * the aux array 2 is treating the aux array as its main array and keeps
