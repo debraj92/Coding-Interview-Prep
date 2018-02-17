@@ -16,16 +16,20 @@ public class BinTreeClient {
 }
 
 class MyBinTree{
-	private TreeNode root;
+	public TreeNode root;
 	
 	/**
 	 * 							13
 	 * 						  /		 \
-	 * 					18		12
+	 * 					18		     12
 	 * 				  /		\		/	\
-	 * 				19	3 	  22   25
-	 * 					  /  \     \
-	 * 				   15   7    2
+	 * 				19	   3 	  22   25
+	 * 					  /  \     \    \
+	 * 				   15   7      2     6
+	 *                 /                   \
+	 *               43                     31
+	 *               /
+	 *              5 
 	 */
 	
 	public void createTree() {
@@ -34,11 +38,15 @@ class MyBinTree{
 		root.leftChild.leftChild = new TreeNode(19);
 		root.leftChild.rightChild = new TreeNode(3);
 		root.leftChild.rightChild.leftChild = new TreeNode(15);
+		root.leftChild.rightChild.leftChild.leftChild = new TreeNode(43);
+		root.leftChild.rightChild.leftChild.leftChild.leftChild = new TreeNode(5);
 		root.leftChild.rightChild.rightChild = new TreeNode(7);
 		root.rightChild = new TreeNode(12);
 		root.rightChild.leftChild = new TreeNode(22);
 		root.rightChild.leftChild.rightChild = new TreeNode(2);
 		root.rightChild.rightChild = new TreeNode(25); 
+		root.rightChild.rightChild.rightChild = new TreeNode(6); 
+		root.rightChild.rightChild.rightChild.rightChild = new TreeNode(31); 
 	}
 	
 	public void printInorder() {
