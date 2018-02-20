@@ -33,7 +33,7 @@ public class BinarySearchClient {
 			sorting.selectionSort(arr);
 			sorting.printArray(arr);
 			
-			int resultIndex = binarySearchForInt(arr, 0, 9, elementToBeSearched);
+			int resultIndex = binarySearchForInt(arr1, 0, 9, elementToBeSearched);
 			System.out.println("the data is at "+resultIndex+"th index of array");
 		 
 	 }

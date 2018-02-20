@@ -9,9 +9,7 @@ public class Isha_Heap {
   	/*	for(int i = 0; i<heap_arr1.length;i++)
   	       System.out.print(" "+heap_arr1[i]);
   		  System.out.println();*/
-    	  
-    	  
-    	  hf.insert(3);
+     	  hf.insert(3);
     	  hf.printHeap();
     	  hf.insert(9);
     	  
@@ -23,9 +21,7 @@ public class Isha_Heap {
     	  hf.insert(5);
     	  hf.insert(10);
     	  hf.insert(11);
-    	  hf.printHeap();
-    	  
-    	  
+    	  hf.printHeap(); 	  
       }
 }
 

@@ -1,11 +1,17 @@
 package JavaLearn;
 
+import java.util.Stack;
+
+import javax.swing.Popup;
+
 public class BinTreeClient {
 	public static void main(String[]args) {
 		MyBinTree binTree = new MyBinTree();
 		binTree.createTree();
 		//binTree.printInorder();
 		//binTree.printPreorder();
+		
+		binTree.preorderNoRecursionCaller();
 		System.out.println("Minimum is: "+binTree.findMinimum());
 		System.out.println("Is Present 3?" +binTree.SearchElement(3));
 		System.out.println("Is Present 2?" +binTree.SearchElement(2));
@@ -48,6 +54,29 @@ class MyBinTree{
 		root.rightChild.rightChild.rightChild = new TreeNode(6); 
 		root.rightChild.rightChild.rightChild.rightChild = new TreeNode(31); 
 	}
+	public void preorderNoRecursionCaller() {
+		preorderNoRecursion(root);
+	}
+	
+	public void preorderNoRecursion(TreeNode temp) {
+		Stack<TreeNode> st = new Stack<>();
+		st.push(temp);
+		if(temp == null) {
+			System.out.println("Tree is empty");
+		} while(!st.isEmpty()) {
+			if(temp != null) {
+				temp = st.pop();
+				System.out.print(" "+temp.data);
+			}
+			if(temp.rightChild != null)
+				st.push(temp.rightChild);
+			if(temp.leftChild != null)
+				st.push(temp.leftChild);
+			
+		}
+	}
+	
+	
 	
 	public void printInorder() {
 		printInorderInternal(root);
