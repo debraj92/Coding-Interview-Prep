@@ -6,7 +6,7 @@ public class GraphImplClient {
 	
 	/**
 	 *  Graph 1:
-	 *  		0 -> 1 -> 2  <-    5 -> 6
+	 *      0 -> 1 -> 2  <-    5 -> 6
 	 *      |    |    |   |    |    ^
 	 *      V    |    V   |    V    |
 	 *      4    -->  3   |    7 -> 8
