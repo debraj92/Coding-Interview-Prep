@@ -1,6 +1,7 @@
 package JavaLearn;
 
 import java.util.LinkedList;
+import java.util.Queue;
 
 public class GraphImplClient {
 	
@@ -32,8 +33,7 @@ public class GraphImplClient {
 	public static void main(String[]args) {
 		
 		//Graph 1
-		/*
-		MyGraph mygraph = new MyGraph(9);
+		/*MyGraph mygraph = new MyGraph(9);
 		mygraph.addEdge(0, 1);
 		mygraph.addEdge(0, 4);
 		mygraph.addEdge(1, 2);
@@ -46,7 +46,9 @@ public class GraphImplClient {
 		mygraph.addEdge(8, 6);
 		*/
 		
+		
 		// Graph 2
+		
 		MyGraph mygraph = new MyGraph(4);
 		mygraph.addEdge(0, 2);
 		mygraph.addEdge(2, 0);
@@ -60,6 +62,10 @@ public class GraphImplClient {
 		mygraph.dfsUtil();
 		System.out.println("**** DFS TRAVERSAL FROM VERTEX 2 ****");
 		mygraph.dfsFromVertex(2);
+		System.out.println("**** BFS TRAVERSAL ****");
+		mygraph.bfsUtil();
+		System.out.println("**** BFS TRAVERSAL FROM VERTEX 2 ****");
+		mygraph.bfsFromVertex(2);
 	}
 }
 
@@ -129,10 +135,9 @@ class MyGraph {
 		}
 		System.out.println(v);
 		visited[v] = true;
-		for(int i= 0; i < countOfVertices; i++) {
-			if(isEdgePresent(v, i)) {
-				dfs(i);
-			}
+		
+		for(int adjVertex : adjList[v]) {
+			dfs(adjVertex);
 		}
 	}
 	
@@ -146,16 +151,42 @@ class MyGraph {
 		dfs(start);
 	}
 	
-	/**
-	 * Checks if an edge is present from src to dst vertex
-	 * @param src
-	 * @param dst
-	 * @return
-	 */
-	private boolean isEdgePresent (int src, int dst) {
-		if (adjList[src].contains(dst)) {
-			return true;
+	public void bfsUtil() {
+		visited = new boolean[countOfVertices];
+		// for disconnected components we need the loop
+		for(int i= 0; i < countOfVertices; i++) {
+			bfs(i);
 		}
-		return false;
+	}
+	
+	private void bfs(int v) {
+		/**
+		 * For BFS we will use a Queue to traverse and not a stack. So there is no recursion here
+		 */
+		if(visited[v]) {
+			return;
+		}
+		Queue<Integer> q = new LinkedList<Integer>();
+		q.add(v);
+		visited[v] = true;
+		while (!q.isEmpty()) {
+			// add all adjacent vertices of v to q
+			v = q.poll();
+			System.out.println(v);
+			
+			// need to add all adjacent vertices of v to q
+			for(int adjVertex : adjList[v]) {
+				if (!visited[adjVertex]) {
+					q.add(adjVertex);
+					visited[adjVertex] = true;
+				}
+			}
+		}
+		
+	}
+	
+	public void bfsFromVertex (int start) {
+		visited = new boolean[countOfVertices];
+		bfs(start);
 	}
 }
