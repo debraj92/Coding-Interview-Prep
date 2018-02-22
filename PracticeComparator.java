@@ -27,13 +27,13 @@ public class PracticeComparator {
 				new MobileBrand("Huawei",13)
 		};
 		BubbleSortUtil sorter = new BubbleSortUtil();
-		Comparator compareOnBrandName = new Comparator<MobileBrand>() {
+		Comparator<MobileBrand> compareOnBrandName = new Comparator<MobileBrand>() {
 			@Override
 			public int compare(MobileBrand m1, MobileBrand m2) {
 				return m1.name.compareTo(m2.name);
 			}
 		};
-		Comparator compareOnMarketShare = new Comparator<MobileBrand>() {
+		Comparator<MobileBrand> compareOnMarketShare = new Comparator<MobileBrand>() {
 			@Override
 			public int compare(MobileBrand m1, MobileBrand m2) {
 				return m1.marketShare-m2.marketShare;
@@ -70,7 +70,7 @@ class MobileBrand {
 }
 
 class BubbleSortUtil{
-	public void sort(Object[] anyObjects, Comparator comparator) {
+	public void sort(MobileBrand[] anyObjects, Comparator<MobileBrand> comparator) {
 		/**
 		 * In bubble sort, in each iteration the heaviest element moves to the bottom of
 		 * the array (right of the array). Note after i iterations the bottom i elements
@@ -81,7 +81,7 @@ class BubbleSortUtil{
 			for(int j= 0; j<anyObjects.length-i-1;j++) {
 				if(comparator.compare(anyObjects[j],anyObjects[j+1])>0) {
 					//jth object greater than j+1 th object. Swap them
-					Object temp = anyObjects[j];
+					MobileBrand temp = anyObjects[j];
 					anyObjects[j] = anyObjects[j+1];
 					anyObjects[j+1] = temp;
 				}
