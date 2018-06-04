@@ -21,13 +21,19 @@ class MaxWidth{
 			return 0;
 		}
 		
+		/**
+		 * Logic: The q will contain a single level each time. So, size of q will tell the width of the tree.
+		 */
 		q.add(temp);
+		// level order traversal
 		while(!q.isEmpty()) {
 		 
-			int size = q.size();		
+			int size = q.size();	
+			//keeping the width updated with the largest width seen in any level
 			width = Math.max(size, width);
-			
+			// size contain the number of elements in the level currently in the q
 			while(size -- > 0) {
+				//remove the current level and enqueue the next level
 				TreeNode temp1 =q.remove();
 				if(temp1.leftChild != null)
 				q.add(temp1.leftChild);
