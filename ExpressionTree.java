@@ -8,7 +8,7 @@ public class ExpressionTree {
     public static void main(String[] args) {
     	
     	CreateExpressionTree cTree = new CreateExpressionTree();
-    	String experssion = "ab+ef*g*-" ;
+    	String experssion = "ab+ef*g*-";//"ab+ef*g*-" ;
     	char[] exp = experssion.toCharArray();
     	ExpressionNode temp = cTree.expressionTree(exp);
     	cTree.inOrderExpressionTreeTraversal(temp);
@@ -52,7 +52,7 @@ class CreateExpressionTree{
 				 e1 =new ExpressionNode(exp[i]);
 				st.push(e1);
 			} else {
-				//since we hve to push e1 as it will be root of subtree so we convert it to node
+				//since we have to push e1 as it will be root of subtree so we convert it to node
 				 e1 =new ExpressionNode(exp[i]);
 				 e2 = st.pop();
 				 e3= st.pop();

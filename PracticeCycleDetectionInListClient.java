@@ -3,22 +3,23 @@ package JavaLearn;
 import java.util.Random;
 
 public class PracticeCycleDetectionInListClient {
-	static final int NODE_COUNT = 15;
+	static final int NODE_COUNT = 14;
 	public static void main(String[]args) {
 		
-		// we will create 20 nodes cyclic list
+		// we will create 14 nodes cyclic list
 		Random random = new Random();
 		CyclicLinkedList list = new CyclicLinkedList();
 		for(int i = 1; i<= NODE_COUNT; i++) {
 			int data = random.nextInt(100);
 			list.insertNodeInTheEnd(data);
 		}
-		list.makeListCyclic(NODE_COUNT/2);
+		list.makeListCyclic(9);
 		list.printCyclicList(NODE_COUNT*2);
 		System.out.println("is cycle present?"+list.detectCycle());
 		System.out.println("Count of Nodes in the cycle "+list.countNodesInCycle());
 		list.makeListAcyclic();
 		list.printList();
+		System.out.println("is cycle present?"+list.detectCycle());
 	}
 }
 
@@ -49,7 +50,6 @@ class CyclicLinkedList extends MyLinkedList {
 				// we have still not found the cycle, each animal moves by their respective steps
 				hare = hare.next.next;
 				tortoise = tortoise.next;
-				System.out.println("Hare: "+hare.data+" Tortoise "+tortoise.data);
 			}
 		}
 		// The list terminates at null. There are no cycles
@@ -82,6 +82,20 @@ class CyclicLinkedList extends MyLinkedList {
 	
 	/**
 	 * Point the last node of the cyclic list to null
+	 * 
+	 * LOGIC:                 
+	 *                                  ---------|
+	 *                                  (2)-(3)  |
+	 *                                  |    |   |
+	 * [1]-[2]-[3]-[4]-[5]-[6]-[7]-[8]-(1)  (4)  |  n steps
+	 *  p1                      p2      |    |   |
+	 *                           <----->(6)-(5)  |
+	 *                            d=2 nodes      |
+	 *  <-------------------->           --------|
+	 *       n=6                        
+	 *                                 
+	 *  p1 is at head and p2 is at "countOfNodesInCycle" node. When p1 and p2 moves together they meet at (1). This is because when p1 reaches (1) it has moved a total of n+d steps.
+	 *  In the same time p2 had moved back to (1) after covering d steps and n steps in the cycle.                              
 	 */
 	public void makeListAcyclic() {
 		/**
@@ -90,9 +104,8 @@ class CyclicLinkedList extends MyLinkedList {
 		 */
 		Node p1 = head;
 		Node p2 = head;
-		// The difference between p2 and p1 should be n. Since p1 is at 1, p2 should be at n+1, => p2 - p1 = n
-		for(int i=2; i<=countOfNodesInCycle+1; i++) {
-			//i=1 corresponds to p2 = head. Dry run for better understanding on why after this loop p2 is the n+1 th node
+		//set p2 at a distance of n. For that p2 needs n-1 jumps
+		for(int i=1; i<=countOfNodesInCycle; i++) {
 			p2 = p2.next;
 		}
 		while(p1 !=  p2) {
