@@ -97,8 +97,8 @@ class BinarySearchTreeClass{
     			  * case of deleteRec will remove it
     			  */
     			 int min = findMinElem(temp.right);
-    			 deleteRec(temp.right,min);
     			 temp.data = min; // changing the value of the deleted node to the minimum of its right subtree
+    			 temp.right = deleteRec(temp.right,min);
     			 return temp;
     		 }
     		 
