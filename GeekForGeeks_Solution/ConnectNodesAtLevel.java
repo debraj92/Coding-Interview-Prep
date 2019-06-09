@@ -9,7 +9,6 @@ import java.util.Queue;
  */
 public class ConnectNodesAtLevel {
 	public static void main(String[]args) {
-		System.out.println("Hi");
 		ConnectNodeAtLevelHelp obj = new ConnectNodeAtLevelHelp();
 		obj.buildTree();
 		obj.setLevelPointers();
@@ -21,6 +20,13 @@ public class ConnectNodesAtLevel {
 class ConnectNodeAtLevelHelp {
 	NodeLevelConnect root;
 	
+	/**
+	 *      A
+	 *     / \
+	 *    B   C
+	 *    /\   \
+	 *   D  E   F
+	 */
 	public void buildTree() {
 		root = new NodeLevelConnect('A');
 		root.left = new NodeLevelConnect('B');
@@ -66,6 +72,12 @@ class ConnectNodeAtLevelHelp {
 		}
 	}
 	
+	/**
+	 * Output:
+	 *    A->
+	 *    B->C->
+	 *    D->E->F
+	 */
 	public void printLevels() {
 		NodeLevelConnect temp = root;
 		while(temp != null) {
