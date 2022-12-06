@@ -20,16 +20,19 @@ public class CustomLinkedListPractice {
 		System.out.println("Deleting from the beginning");
 		list.deleteNodeFromTheBeginning();
 		list.printList();
-		/*System.out.println("Size of the linked list: "+list.findLengthOfTheList());
+		System.out.println("Size of the linked list (recursion): "+ list.findLengthOfTheListWithRecursion());
+		System.out.println("Size of the linked list: "+list.findLengthOfTheList());
 		System.out.println("Reversing the linked list");
 		list.reverseTheListWithRecursion();
 		list.printList();
-		*/
+		
+		/*
 		System.out.println("Deleting in the end");
 		list.deleteNodeInTheEnd();
 		list.printList();
 		list.reverseTheListWithoutRecursion();
 		list.printList();
+		*/
 	}
 }
 
@@ -156,11 +159,15 @@ class MyLinkedList {
 	}
 	
 	/**
-	 * Complete this method
+	 * Length of linked list using recursion.
 	 * @return length of the list
 	 */
 	public int findLengthOfTheListWithRecursion() {
-		return -1;
+		return findLengthOfTheListWithRecursionInternal(head);
+	}
+	
+	private int findLengthOfTheListWithRecursionInternal (Node temp) {
+		return temp == null ? 0 : 1 + findLengthOfTheListWithRecursionInternal(temp.next);
 	}
 	
 	public void reverseTheListWithRecursion() {
@@ -209,7 +216,7 @@ class MyLinkedList {
 	}
 	
 	/**
-	 * TODO: Complete this method. You need to reverse the list without recursion
+	 * Complete this method. You need to reverse the list without recursion
 	 */
 	public void reverseTheListWithoutRecursion() {
 		System.out.println("reverseTheListWithoutRecursion");

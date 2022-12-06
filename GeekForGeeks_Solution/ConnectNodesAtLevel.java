@@ -41,26 +41,23 @@ class ConnectNodeAtLevelHelp {
 		q.add(root);
 		// The size will indicate the number of nodes in each level of the q
 		int size;
+		NodeLevelConnect prev, cur;
 		while(!q.isEmpty()) {
 			size = q.size();
 			/**
 			 * Two pointers prev and cur will be used to create the level order connections
 			 */
-			NodeLevelConnect prev = q.remove();
-			size--;
-			//add the children of prev to q
+			prev = null;
+			cur = null;
 			/**
 			 * Note, although the q will contain more elements than in each level, we will process (create level connections) only elements in that level (size number of elements)
 			 */
-			if(prev.left != null) {
-				q.add(prev.left);
-			}
-			if(prev.right != null) {
-				q.add(prev.right);
-			}
 			while(size-->0) {
-				NodeLevelConnect cur = q.remove();
-				prev.level = cur; // set up the level order connections
+				cur = q.remove();
+				if(prev != null) {
+					// set up the level order connections
+					prev.level = cur;
+				}
 				if(cur.left != null) {
 					q.add(cur.left);
 				}

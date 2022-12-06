@@ -36,8 +36,9 @@ class PathofPair{
 		}
 		int l1= findElementlenRec(ancestor,n1);
 		int l2 = findElementlenRec(ancestor,n2);
-		System.out.println(l1+ " "+ l2);
-		return l1+l2-2;
+		int l = findElementlenRec(temp, ancestor.data);
+		//System.out.println(l1+ " "+ l2);
+		return l1 + l2 -2 * l;
 	}
 	/**
 	 * 
@@ -47,7 +48,7 @@ class PathofPair{
 	 * @return node which is the common ancestor
 	 */
 	public TreeNode findCommonAncestor(TreeNode temp, int n1,int n2) {
-			//NOTE: we are calling findElementRec
+	    //NOTE: we are calling findElementRec
 		boolean inLeft = findElementRec(temp.leftChild,n1, n2);
 		boolean inRight = findElementRec(temp.rightChild,n1,n2);
 		//below if statement checks for the case when the caller node itself is n1 or n2.
@@ -87,9 +88,7 @@ class PathofPair{
 			if( temp.data == n1|| temp.data == n2) {
 				return true;
 			} else {
-			boolean findElementLeft = findElementRec(temp.leftChild, n1, n2);
-			boolean findElementRight= findElementRec(temp.rightChild, n1, n2);
-			return findElementLeft || findElementRight;
+				return findElementRec(temp.leftChild, n1, n2) || findElementRec(temp.rightChild, n1, n2);
 			}
 		}
 	}

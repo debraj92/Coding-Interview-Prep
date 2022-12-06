@@ -79,6 +79,7 @@ class MyGraph {
 	private LinkedList<Integer> adjList[];
 	private int countOfVertices;
 	
+	@SuppressWarnings("unchecked")
 	MyGraph (int number_of_vertices) {
 		countOfVertices = number_of_vertices;
 		this.adjList = new LinkedList[number_of_vertices];

@@ -9,7 +9,6 @@ import java.util.Queue;
  */
 public class ConnectNodesAtLevel {
 	public static void main(String[]args) {
-		System.out.println("Hi");
 		ConnectNodeAtLevelHelp obj = new ConnectNodeAtLevelHelp();
 		obj.buildTree();
 		obj.setLevelPointers();

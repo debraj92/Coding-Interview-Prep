@@ -1,8 +1,8 @@
 package JavaLearn;
-
+import JavaLearn.MyBinTree;
 
 //https://www.geeksforgeeks.org/a-program-to-check-if-a-binary-tree-is-bst-or-not/
-public class IfBinarySearchTree {
+public class IsBinarySearchTree {
      public static void main(String[] args) {
 
  		MyBinTree binTree = new MyBinTree();

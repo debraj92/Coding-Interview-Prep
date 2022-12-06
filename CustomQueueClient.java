@@ -93,6 +93,11 @@ public class CustomQueueClient {
 	
 }
 
+/**
+ * Implementation of circular queue
+ * @author debrajray
+ *
+ */
 class QueueArray {
 	//Actual size of the Queue is one less than SIZE. We need a boundary element
 	static final int SIZE = 5;
@@ -184,19 +189,11 @@ class QueueArray {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+/**
+ * Queue implementation using LinkedList
+ *
+ * @param <E>
+ */
 class QueueList<E> {
 	Node rear = null;
 	Node front = null;

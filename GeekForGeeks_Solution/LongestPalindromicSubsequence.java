@@ -22,17 +22,19 @@ public class LongestPalindromicSubsequence {
 		// the outer loop will be for the number of diagonals.
 		// the inner loop will be for the cells in each diagonal
 		
-		for(i=0; i<l; i++) {
+		// The first diagonal table[i][i] is already calculated. we start from second diagonal (i=1)
+		for(i=1; i<l; i++) {
 			//System.out.println();
-			for (j=0; j<l-1-i; j++) {
+			for (j=0; j<=l-1-i; j++) {
 				/**
 				 * Now we need to decide the cell value of each diagonal. Clearly for each diagonal the rows will vary from 0 to l-1-i, 
-				 * which means the row would be j. The column values will also vary as the row values but they start at an offset of i+1.
-				 * The last column would be i+1+j = i+1+l-1-i -1 (since j<l-1-i) => col = l-1. You can see the value is independent of i
-				 *  and would always run up to l-1. The last row however is dependent on i would be l-1 for the first diagonal, l-2 for the next 
+				 * which means the row would be j. The column values will also vary as the row values but they start at an offset of i. cell = table[j][i+j]. For 
+				 * first diagonal (i=0), the cells computed are of the form - table[j][j]. The second diagonal cells will be table[j][j+1], third - table[j][j+2].
+				 * The last column would be i+j = i + (l-1-i) = l-1. You can see that this value is independent of i and would always run up to l-1. 
+				 * The last row however is dependent on i would be l-1 for the first diagonal, l-2 for the next 
 				 */
 				int row = j;
-				int col = i+1+j;
+				int col = i+j;
 				//System.out.println("r "+row+" c "+col);
 				
 				// each cell of a diagonal - table[row][col]

@@ -16,7 +16,8 @@ import java.util.concurrent.CountDownLatch;
 public class MinRemovalPalindrome {
     public static void main(String[] args) {
     //	String s = "geeksforgeeks";
-    String s = "shubham";
+    //String s = "shubham";
+    	String s = "maam";
     	MinPalin mPalin = new MinPalin();
     	int result =mPalin.minRemoval(s);
     	System.out.print(result);
@@ -45,15 +46,10 @@ class MinPalin{
 		
 		for(int i = 0; i <len; i++) {
 			char c =str.charAt(i);
-			if(hMap.containsKey(str.charAt(i)) ) {
-				
-				int val = hMap.get(str.charAt(i));
-				val++;
-				hMap.put(str.charAt(i),val);
-			} else {
-				hMap.put(c, 1);
-				
-			}
+			
+			int val = !hMap.containsKey(c) ? 1 : hMap.get(c) + 1;
+			hMap.put(c,val);
+			
 		System.out.println(hMap);
 		}
 		//Iterating Map
@@ -66,6 +62,7 @@ class MinPalin{
 		    if(value%2 == 1)
 		    	count++;
 		}
-		return count-1;
+		// if the original string contains only even number of characters, we don't have to remove any character to make the string palindrome.
+		return count == 0? 0 : count-1;
 	}
 }

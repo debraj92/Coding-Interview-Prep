@@ -73,10 +73,10 @@ class Sorter {
 		 *  ms(arr, aux) (4)     ms(arr, aux) (5)
 		 * 
 		 * 4 and 5 sorts their part of arr and keeps their sorted data inside
-		 * the aux array 2 is treating the aux array as its main array and keeps
+		 * the aux array in 2. 2 is treating the aux array as its main array and keeps
 		 * its sorted data inside arr (which according to 2 is the aux array)
 		 * Same for 3. It keeps the sorted data inside arr thinking that this is
-		 * the aux array. 1 merges the content inside , obtained from 2 and 3,
+		 * the aux array. 1 merges the content obtained from 2 and 3,
 		 * and keeps it inside aux
 		 * 
 		 * The final result is inside aux

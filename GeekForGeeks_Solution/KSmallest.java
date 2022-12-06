@@ -4,6 +4,15 @@ import java.util.Arrays;
 
 //https://www.geeksforgeeks.org/kth-smallestlargest-element-unsorted-array/
 
+/**
+ * Can be implemented using Quickselect with better time complexity - O(N)
+ * https://github.com/marioluan/java-sorting-algorithms/blob/master/src/main/java/io/github/marioluan/algorithms/sorting/QuickSelect.java
+ * 
+ * Implement yourself
+ *
+ */
+
+
 public class KSmallest {
   
 	public static void main(String[]args) {

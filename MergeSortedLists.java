@@ -5,6 +5,27 @@ import java.util.Random;
 /**
  * Program to merge 2 sorted Linked lists
  *
+ *	Best solution in GeeksForGeeks
+ *
+		  public Node SortedMerge(Node A, Node B)  
+		    { 
+		      
+		        if(A == null) return B; 
+		        if(B == null) return A; 
+		          
+		        if(A.data < B.data)  
+		        { 
+		            A.next = SortedMerge(A.next, B); 
+		            return A; 
+		        } 
+		        else 
+		        { 
+		            B.next = SortedMerge(A, B.next); 
+		            return B; 
+		        } 
+		          
+		    } 
+ *
  */
 public class MergeSortedLists {
 	public static void main(String[] args) {

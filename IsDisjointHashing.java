@@ -25,6 +25,7 @@ class IsDisjoint{
 			if(hs.contains(arr1[i])) {
 				System.out.println("Not Disjoint");
 				counter = 1;
+				break;
 			}
 		if(counter == 0)
 			System.out.println("Disjoint");

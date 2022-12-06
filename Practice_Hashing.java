@@ -49,7 +49,7 @@ class ProblemHashing1 {
 	 * The idea to solve this problem
 	 * ==================
 	 * We traverse the array - arr and add elements to the hash set. While adding we check if the hash set already contains the same element. If yes
-	 * we return true. Now, we are expected to find duplicates withing a range of k elements. That means, we can drop the 0th element from consideration
+	 * we return true. Now, we are expected to find duplicates within a range of k elements. That means, we can drop the 0th element from consideration
 	 * when we are adding the k+1th element (because even if the k+1th element is the same as the 0th element, they are at distance more than k apart).
 	 * 
 	 * To drop elements, we use a pointer called elementToRemoveIndex. It is initially set to -k-1. For example if k =3, it is set at -4. This pointer is 

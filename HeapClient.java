@@ -132,85 +132,8 @@ class Heap_{
 			exchange(0,size);
 			//the heap is now one less
 			size--;
-			// the root element now violates the heap property. Sink it to its appropraiate location.
+			// the root element now violates the heap property. Sink it to its appropriate location.
 			sink(0);
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*class Heap_functions{
-	public void max_heapify(int i, int[] arr) {
-		int l, r, max,len, temp;
-		len = arr.length;
-		
-		l = leftChild(len , i);
-		r = rightChild(len , i);
-		if(l < 0 && arr[l] > arr[i] )
-			max = l;
-		else max = i;
-		if(r < len && arr[r] > arr[max])
-			max = r;
-		
-		temp = arr[i];
-		arr[i] = arr[max];
-		arr[max] = temp;
-		
-		max_heapify(max, arr);
-		
-	}
-	public int parent(int len, int i) {
-		if(i <= 0 || i>= len)
-			return -1;
-		else {
-		int parent = i-1/2;
-		return parent;
-		}
-	}
-	
-	public int leftChild(int len, int i) {
-		if(i < 0 || i>= len)
-			return -1;
-		else {
-		int leftChild = 2*i+1;
-		return leftChild;
-		}
-	}
-	
-	public int rightChild(int len, int i) {
-		if(i < 0 || i>= len)
-			return -1;
-		else {
-		int rightChild = 2*i+2;
-		return rightChild;
-		}
-	}
-}*/

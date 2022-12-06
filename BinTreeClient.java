@@ -25,15 +25,15 @@ class MyBinTree{
 	public TreeNode root;
 	
 	/**
-	 * 							13
-	 * 						  /		 \
+	 * 						  13
+	 * 					  /		    \
 	 * 					18		     12
-	 * 				  /		\		/	\
+	 * 				  /	  \         /  \
 	 * 				19	   3 	  22   25
-	 * 					  /  \     \    \
-	 * 				   15   7      2     6
-	 *                 /                   \
-	 *               43                     31
+	 * 					  / \      \     \
+	 * 				   15   7       2     6
+	 *                 /                    \
+	 *               43                      31
 	 *               /
 	 *              5 
 	 */
@@ -157,9 +157,9 @@ class MyBinTree{
 		} else if (temp.leftChild == null && temp.rightChild == null) {
 			return temp.data == element;
 		} else {
-			boolean isPresentInLeftChild = SearchElementInternal(temp.leftChild,element);
-			boolean isPresentInRightChild = SearchElementInternal(temp.rightChild,element);
-			return isPresentInLeftChild || isPresentInRightChild || temp.data == element;	
+			
+			return temp.data == element || SearchElementInternal(temp.leftChild,element) 
+					|| SearchElementInternal(temp.rightChild,element);
 		}
 	}
 	
@@ -197,7 +197,13 @@ class TreeNode{
 	TreeNode leftChild;
 	TreeNode rightChild;
 	int data;
+	
+	char data2;
 	TreeNode(int data) {
 		this.data = data;
+	}
+	
+	TreeNode (char data2) {
+		this.data2 = data2;
 	}
 }

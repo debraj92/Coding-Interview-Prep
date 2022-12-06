@@ -65,6 +65,10 @@ public class PhoneNumber {
 	
 }
 
+/**
+ * Contain represent a single character node of the DFS graph. It has a list of next nodes which it connects to.
+ *
+ */
 class Contain {
 	Contain[] nextNodes;
 	String element;

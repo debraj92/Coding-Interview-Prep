@@ -3,6 +3,34 @@ package JavaLearn;
 /**
  * Longest Common Subsequence
  * https://www.geeksforgeeks.org/longest-common-subsequence/
+ * No recursion - https://www.geeksforgeeks.org/longest-common-subsequence-dp-4/
+ * 
+ *                                                                           LCS(AGGTAB, GXTXAYB)             len = 0
+ *                                                                                   /  \
+ *                                                              LCS(GGTAB, GXTXAYB)    LCS(AGGTAB, XTXAYB)
+ *                                                                       |
+ *                                                                LCS(GTAB, XTXAYB)                           len = 1
+ *                                                                     /    \  
+ *                                                       LCS(TAB, XTXAYB)   LCS(GTAB, TXAYB)
+ *                                                                             /  \
+ *                                                                LCS(TAB, TXAYB)
+ *                                                                       |
+ *                                                               LCS(AB, XAYB)                                len = 2
+ *                                                                          \
+ *                                                                          LCS(AB, AYB)
+ *                                                                               |
+ *                                                                          LCS(B, YB)                        len = 3
+ *                                                                             /    \
+ *                                                                     LCS("", B)    LCS(B, B)
+ *                                                                                      |
+ *                                                                                LCS("", "")                 len = 4
+ *                                                                                
+ *                                                        
+ *                                                        SEQUENCE : GTAB   (length = 4)
+ *                                                                                              
+ *                                                                     
+ * 
+ *    
  */
 
 public class LCS {
