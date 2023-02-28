@@ -11,7 +11,7 @@ public class IsHeightBalanaced {
 	}
 
 }
-
+// Better Solution: https://www.geeksforgeeks.org/how-to-determine-if-a-binary-tree-is-balanced/
 class IsHeightBalancedTree{
 	public boolean findifbalanced(TreeNode temp) {
 		if(temp == null) {
